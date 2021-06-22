@@ -4,7 +4,7 @@
   "bin": {
     "create-npm-starter": "bin/index.js"
   },
-  "description": "generate boilerplate for npm packages",
+  "description": "Generate boilerplate for your npm package",
   "main": "dist/index.js",
   "scripts": {
     "watch": "tsc -w",
@@ -51,7 +51,11 @@
     "typescript": "^4.3.4",
     "yorkie": "^2.0.0"
   },
-  "keywords": [],
+  "keywords": [
+    "create-boilerplate",
+    "npm-boilerplate",
+    "npm-starter"
+  ],
   "author": "Roshan Acharya <acharyaroshan2357@gmail.com>",
   "license": "MIT",
   "bugs": {
