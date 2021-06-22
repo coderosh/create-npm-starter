@@ -1,8 +1,8 @@
 {
   "name": "create-npm-starter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
-    "create-npm-starter": "dist/cli.js"
+    "create-npm-starter": "bin/index.js"
   },
   "description": "generate boilerplate for npm packages",
   "main": "dist/index.js",
