@@ -84,8 +84,6 @@ const run = async () => {
 
 export = run
 
-run()
-
 function copy(src: string, dest: string) {
   if (fs.statSync(src).isDirectory()) {
     fs.mkdirSync(dest, { recursive: true })
