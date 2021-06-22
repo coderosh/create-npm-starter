@@ -1,0 +1,45 @@
+{
+  "name": "typescript-starter",
+  "version": "0.0.0",
+  "description": "typescript-starter",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint src/**.ts",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "cb": "yarn clean && yarn build",
+    "prepublishOnly": "yarn lint && yarn test && yarn build"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.4",
+    "@types/node-fetch": "^2.5.10",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.0.4",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged && yarn cb && yarn test && git add ."
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ]
+  }
+}
