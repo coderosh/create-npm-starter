@@ -6,6 +6,11 @@
   },
   "description": "Generate boilerplate for your npm package",
   "main": "dist/index.js",
+  "files": [
+    "dist/**",
+    "bin/**",
+    "templates/**"
+  ],
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
