@@ -1,0 +1,39 @@
+{
+  "name": "javascript-starter",
+  "version": "0.0.0",
+  "description": "Javascript Starter",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src/**.js",
+    "test": "jest",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "jest": {
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "collectCoverage": true
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged && npm run test && git add ."
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "jest": "^27.0.5",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "yorkie": "^2.0.0"
+  }
+}
