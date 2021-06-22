@@ -1,6 +1,6 @@
 {
   "name": "create-npm-starter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bin": {
     "create-npm-starter": "bin/index.js"
   },
