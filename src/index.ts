@@ -3,6 +3,7 @@ import path from 'path'
 import prompts from 'prompts'
 import minimist from 'minimist'
 import chalk from 'chalk'
+import { getReadme, getGithubUsername, getNameAndEmail } from './utils'
 
 const args = minimist(process.argv.slice(2))
 const cwd = process.cwd()
@@ -10,6 +11,9 @@ const cwd = process.cwd()
 const templates = ['typescript-starter', 'javascript-starter']
 
 const run = async () => {
+  const { name, email } = getNameAndEmail()
+  const username = await getGithubUsername(email)
+
   let targetDir = args._[0]
 
   if (!targetDir) {
@@ -65,6 +69,11 @@ const run = async () => {
   const pkgFile = path.join(templateDir, 'package.json')
   const pkgJson = require(pkgFile)
   pkgJson.name = packageName
+  pkgJson.author = `${name} <${email}>`
+  const repo = `https://github.com/${username}/${packageName}`
+  pkgJson.homepage = `${repo}#readme`
+  pkgJson.bugs = { url: `${repo}/issues` }
+  pkgJson.repository = { type: 'git', url: `git+${repo}.git` }
 
   console.log(chalk.greenBright(`\n> Scaffolding project in ${root}...`))
 
@@ -72,6 +81,10 @@ const run = async () => {
   fs.writeFileSync(
     path.join(root, 'package.json'),
     JSON.stringify(pkgJson, null, 2)
+  )
+  fs.writeFileSync(
+    path.join(root, 'README.md'),
+    getReadme(packageName, username)
   )
 
   console.log(chalk.cyanBright(`\nDone. Now run:\n`))
