@@ -13,7 +13,7 @@
 - Test with `jest`
 - Lint with `eslint`
 - Format with `prettier`
-- Github actions CI
+- CI with `github actions`
 - Git hooks with `yorkie`
 
 ## Usage
